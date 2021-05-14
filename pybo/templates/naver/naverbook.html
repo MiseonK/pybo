@@ -10,7 +10,7 @@
     </div>
     {% endfor %}
 
-    {{ form.csrf_token }}   <!-- 폼 쓸때 무조건 있어야한다 -->
+    {{ form.csrf_token }}
     {{ form.search.label }}
     {{ form.search(class="form-control") }}
 
@@ -33,7 +33,6 @@
             </tr>
             </thead>
             <tbody>
-                 <!-- bookinfo_list:리스트 형태 -->
                  {% for book in bookinfo_list %}
                   <tr>
                       <td> {{ loop.index }}</td>

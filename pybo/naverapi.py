@@ -30,8 +30,8 @@ def navermovie(moviename):
     client_id = "yV8cPcYQMwCfoDah0FM4"
     client_secret = "zOQxnV3_TC"
     encText = urllib.parse.quote(moviename)
-    url = "https://openapi.naver.com/v1/search/movie?query=" + encText # json 결과
-    # url = "https://openapi.naver.com/v1/search/movie.xml?query=" + encText # xml 결과
+    url = "https://openapi.naver.com/v1/search/movie?query=" + encText # json
+    # url = "https://openapi.naver.com/v1/search/movie.xml?query=" + encText # xml
     request = urllib.request.Request(url)
     request.add_header("X-Naver-Client-Id",client_id)
     request.add_header("X-Naver-Client-Secret",client_secret)
@@ -45,20 +45,3 @@ def navermovie(moviename):
         print("Error Code:" + rescode)
 
     return jsontmp
-
-
-# data= ''' {"title":삼국지 } '''  ->  json.loads()로 불러온다
-# data= {"title":삼국지 } ->  json.dumps()로 불러온다
-
-#naverbook('삼국지')
-
-# jsonstring = '''
-# {"date":"2021-05-11" , "data":[{"price":300 , "total":20},{"price":100 , "total":120}
-# ,{"price":1200 , "total":52}]}
-# '''
-# jdata=json.loads(jsonstring)
-# result=jdata['data']
-# total=0
-# for temp in result:
-#     total=total+(temp['price']*temp['total'])
-# print(total)

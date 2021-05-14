@@ -1,7 +1,5 @@
 from pybo import db
 
-# 설계도 같은 개념 Question-테이블 이름
-# DB잘못 만들었을때-> 수정-> migrations, pybo.db 삭제하고 다시 생성
 class Question(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     subject=db.Column(db.String(200),nullable=False)
