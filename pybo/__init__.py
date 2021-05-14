@@ -15,7 +15,7 @@ def create_app():
 
     from . import models
 
-    from .views import main_views,naver_views,question_views,auth_views,answer_views,movie_views
+    from .views import main_views,naver_views,question_views,auth_views, movie_views,answer_views
 
     app.register_blueprint(main_views.bp)
     app.register_blueprint(naver_views.bp)
