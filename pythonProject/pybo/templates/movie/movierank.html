@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h5 class="my-3 border-bottom pb-2">영화 순위</h5>
+</div>
+
+<div class="container my-3">
+        <table class="table table-hover">
+            <thead>
+            <tr class="thead-dark">
+                <th>순위</th>
+                <th>제목</th>
+                <th>별점</th>
+                <th>장르</th>
+                <th>이미지</th>
+            </tr>
+            </thead>
+            <tbody>
+                 <!-- bookinfo_list:리스트 형태 -->
+                 {% for movie in movierank %}
+                  <tr>
+                      <td> {{ loop.index }}</td>
+                      <td> {{ movie.title }}</td>
+                      <td> {{ movie.star }}</td>
+                      <td> {{ movie.genre }}</td>
+                      <td> <img src="{{movie.img}}" height="120" width="90"></td>
+                  </tr>
+                 {% endfor %}
+            </tbody>
+        </table>
+
+</div>
+
+{% endblock %}
