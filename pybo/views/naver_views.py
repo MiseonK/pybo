@@ -1,11 +1,11 @@
 from flask import Blueprint, render_template, url_for, request
 from werkzeug.utils import redirect
-from pybo.naverapi import naverbook
-from ..forms import NaverBookForm
+from pybo.naverapi import naverbook,navermovie
+from ..forms import NaverBookForm, NaverMovieForm
 
 bp = Blueprint('naver', __name__, url_prefix='/naver')
 
-@bp.route('/book/', methods=('GET','POST')) #책검색 페이지 접근
+@bp.route('/book/', methods=('GET','POST'))
 def Naverbook():
     form = NaverBookForm()
 
@@ -15,3 +15,13 @@ def Naverbook():
 
     return render_template('naver/naverbook.html',form=form)
 
+
+@bp.route('/movie/', methods=('GET','POST'))
+def Navermovie():
+    form = NaverMovieForm()
+
+    if request.method == "POST" and form.validate_on_submit():
+        result = navermovie(form.search.data)
+        return render_template('naver/navermovie.html', movieinfo_list=result['items'],form=form)
+
+    return render_template('naver/navermovie.html',form=form)
