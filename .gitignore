@@ -1,4 +1,5 @@
 .idea
 pybo.db
 *.pyc
+ngrok.exe
 __pycache__
