@@ -45,3 +45,22 @@ def navermovie(moviename):
         print("Error Code:" + rescode)
 
     return jsontmp
+
+def navershop(product):
+    client_id = "yV8cPcYQMwCfoDah0FM4"
+    client_secret = "zOQxnV3_TC"
+    encText = urllib.parse.quote(product)
+    url = "https://openapi.naver.com/v1/search/shop?&sort=sim&query=" + encText # json
+    request = urllib.request.Request(url)
+    request.add_header("X-Naver-Client-Id",client_id)
+    request.add_header("X-Naver-Client-Secret",client_secret)
+    response = urllib.request.urlopen(request)
+    rescode = response.getcode()
+    if(rescode==200):
+        response_body = response.read()
+        jsontmp=json.loads(response_body.decode('utf-8'))
+
+    else:
+        print("Error Code:" + rescode)
+
+    return jsontmp
