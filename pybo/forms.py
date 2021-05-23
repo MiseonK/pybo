@@ -26,3 +26,6 @@ class NaverBookForm(FlaskForm):
 
 class NaverMovieForm(FlaskForm):
     search=StringField('검색창',validators=[DataRequired()])
+
+class HelpForm(FlaskForm):
+    search=StringField('검색',validators=[DataRequired()])
